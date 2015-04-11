@@ -8,7 +8,7 @@ from processor import print_log, logger
 from utils import bc_address_to_hash_160, hash_160_to_pubkey_address, hex_to_int, int_to_hex, Hash
 
 global GENESIS_HASH
-GENESIS_HASH = '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f'
+GENESIS_HASH = 'f1ae188b0c08e296e45980f9913f6ad2304ff02d5293538275bacdbcb05ef275'
 
 """
 Patricia tree for hashing unspents
@@ -430,7 +430,7 @@ class Storage(object):
 
             # note: k is not necessarily a leaf
             if len(k) == KEYLENGTH:
-                 _hash, value = k[20:52], hex_to_int(v[0:8])
+                _hash, value = k[20:52], hex_to_int(v[0:8])
             else:
                 _hash, value = None, None
 
