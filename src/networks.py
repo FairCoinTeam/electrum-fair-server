@@ -9,6 +9,6 @@ params = {
     'bitcoin_test': {
         'pubkey_address': 111,
         'script_address': 196,
-        'genesis_hash': '000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943'
+        'genesis_hash': '5df7281a262d9a6251e65d12bdb78c6a69041c7d28e209df2a7719059de3088c'
     }
 }
