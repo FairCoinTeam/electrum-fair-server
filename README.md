@@ -1,7 +1,8 @@
-Electrum-server for the Electrum client
-=========================================
+FairCoin port of the Electrum-server for the Electrum client
+============================================================
 
   * Author: Thomas Voegtlin (ThomasV on the bitcointalk forum)
+  * Ported: Thomas König (thokon00 on the bitcointalk forum)
   * Language: Python
 
 Features
