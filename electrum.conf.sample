@@ -1,6 +1,6 @@
 [server]
 # username for running the daemon
-username = 
+username = electrum
 # hostname. set it to a FQDN in order to be reached from outside
 host = 0.0.0.0
 # ports
