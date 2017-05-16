@@ -574,39 +574,11 @@ class BlockchainProcessor(Processor):
 
 
     def getfullblock(self, block_hash):
-        block = self.bitcoind('getblock', [block_hash])
+        block = self.bitcoind('getblock', [block_hash, True, False])
 
-        rawtxreq = []
-        i = 0
-        for txid in block['tx']:
-            rawtxreq.append({
-                "method": "getrawtransaction",
-                "params": [txid],
-                "id": i,
-            })
-            i += 1
-        postdata = dumps(rawtxreq)
+        assert ir['error'] is None, "Error: make sure you run bitcoind with txindex=1; use -reindex if needed."
 
-        while True:
-            try:
-                respdata = urllib.urlopen(self.bitcoind_url, postdata).read()
-            except:
-                logger.error("bitcoind error (getfullblock)")
-                self.wait_on_bitcoind()
-                continue
-            try:
-                r = loads(respdata)
-                rawtxdata = []
-                for ir in r:
-                    assert ir['error'] is None, "Error: make sure you run bitcoind with txindex=1; use -reindex if needed."
-                    rawtxdata.append(ir['result'])
-            except BaseException as e:
-                logger.error(str(e))
-                self.wait_on_bitcoind()
-                continue
-
-            block['tx'] = rawtxdata
-            return block
+        return block
 
     def catch_up(self, sync=True):
 
